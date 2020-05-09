@@ -17,19 +17,15 @@ public class Product extends AbstractEntity {
     private String title;
 
     @ManyToOne(targetEntity = Brand.class)
-    @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
 
     @ManyToOne(targetEntity = Category.class)
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @ManyToOne(targetEntity = Photo.class, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo photo;
 
     @ManyToOne(targetEntity = Measurement.class)
-    @JoinColumn(name = "measurement_id", referencedColumnName = "id")
     private Measurement measurementType;
 
     private Integer quantity;

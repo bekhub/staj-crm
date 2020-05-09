@@ -17,6 +17,5 @@ public class Brand extends AbstractEntity {
     private String title;
 
     @ManyToOne(targetEntity = Photo.class, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo photo;
 }
