@@ -5,13 +5,13 @@
 <h4>Requirements:</h4>
 <ul>
     <li>git</li>
-    <li>docker</li>
-    <li>docker-compose</li>
+    <li>maven</li>
+    <li>mysql or mariadb</li>
+    <li>jdk:11</li>
+    <li>node.js</li>
 </ul>
 <h4>Steps:</h4>
 <ol>
-<li>Clone project: <code>git clone https://github.com/bekhub/staj.git</code></li>
-<li>go to staj directory: <code>cd staj</code></li>
-<li>run docker: <code>sudo docker-compose up</code></li>
-<li>wait for downloading and building and go to <a href="http://localhost:8080">http://localhost:8080</a></li>
+    <li>Clone project: <code>git clone https://github.com/bekhub/staj.git</code></li>
+    <li>go to staj directory: <code>cd staj</code></li>
 </ol>
