@@ -5,7 +5,7 @@ services:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
-    container_name: staj-db
+    container_name: staj-crm-db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: staj
@@ -14,10 +14,10 @@ services:
     volumes:
       - ./data/:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3308:3306"
 
   web-service:
-    container_name: staj-web
+    container_name: staj-crm-web
     build: .
     image: staj/spring-boot
     ports:
@@ -30,4 +30,10 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/staj?autoReconnect=true&useSSL=false
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
-    restart: always
+
+  node:
+    container_name: staj-npm
+    image: node:12.16.3
+    expose:
+      - "8081"
+    command: "npm"
