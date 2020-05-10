@@ -1,6 +1,5 @@
 package kg.ktmu.staj.service;
 
-import kg.ktmu.staj.entity.Photo;
 import kg.ktmu.staj.repo.PhotoRepo;
 import org.springframework.stereotype.Service;
 

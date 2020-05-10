@@ -22,8 +22,7 @@ public class Product extends AbstractEntity {
     @ManyToOne(targetEntity = Category.class)
     private Category category;
 
-    @ManyToOne(targetEntity = Photo.class, cascade = CascadeType.PERSIST)
-    private Photo photo;
+    private String photo;
 
     @ManyToOne(targetEntity = Measurement.class)
     private Measurement measurementType;

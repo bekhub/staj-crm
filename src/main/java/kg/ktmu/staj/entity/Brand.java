@@ -16,6 +16,5 @@ public class Brand extends AbstractEntity {
     @NotEmpty
     private String title;
 
-    @ManyToOne(targetEntity = Photo.class, cascade = CascadeType.PERSIST)
-    private Photo photo;
+    private String photo;
 }
