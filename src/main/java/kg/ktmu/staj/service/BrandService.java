@@ -1,7 +1,10 @@
 package kg.ktmu.staj.service;
 
+import kg.ktmu.staj.entity.Brand;
 import kg.ktmu.staj.repo.BrandRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BrandService {
@@ -10,5 +13,9 @@ public class BrandService {
 
     public BrandService(BrandRepo repo) {
         this.repo = repo;
+    }
+
+    public List<Brand> findAll() {
+        return repo.findAll();
     }
 }

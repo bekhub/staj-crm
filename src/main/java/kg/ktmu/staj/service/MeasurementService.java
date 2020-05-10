@@ -1,7 +1,10 @@
 package kg.ktmu.staj.service;
 
+import kg.ktmu.staj.entity.Measurement;
 import kg.ktmu.staj.repo.MeasurementRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MeasurementService {
@@ -10,5 +13,9 @@ public class MeasurementService {
 
     public MeasurementService(MeasurementRepo repo) {
         this.repo = repo;
+    }
+
+    public List<Measurement> findAll() {
+        return repo.findAll();
     }
 }
