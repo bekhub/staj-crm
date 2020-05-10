@@ -11,8 +11,8 @@ import kg.ktmu.staj.service.ProductService;
 @Route("")
 public class MainView extends VerticalLayout {
 
-    private Grid<Product> grid = new Grid<>(Product.class);
-    private ProductService service;
+    private final Grid<Product> grid = new Grid<>(Product.class);
+    private final ProductService service;
 
     public MainView(ProductService service) {
         this.service = service;
