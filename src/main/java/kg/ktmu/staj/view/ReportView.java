@@ -2,11 +2,13 @@ package kg.ktmu.staj.view;
 
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import kg.ktmu.staj.entity.Report;
 import kg.ktmu.staj.service.ReportService;
 
-@Route("report")
+@Route(value = "report", layout = MainLayout.class)
+@PageTitle("Reports | Staj CRM")
 public class ReportView extends VerticalLayout {
 
     private final ReportService service;

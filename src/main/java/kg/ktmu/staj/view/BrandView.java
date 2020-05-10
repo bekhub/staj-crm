@@ -2,11 +2,13 @@ package kg.ktmu.staj.view;
 
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import kg.ktmu.staj.entity.Brand;
 import kg.ktmu.staj.service.BrandService;
 
-@Route("brand")
+@Route(value = "brand", layout = MainLayout.class)
+@PageTitle("Brands | Staj CRM")
 public class BrandView extends VerticalLayout {
 
     private final BrandService service;

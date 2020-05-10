@@ -1,5 +1,6 @@
 package kg.ktmu.staj.service;
 
+import kg.ktmu.staj.entity.Category;
 import kg.ktmu.staj.entity.Measurement;
 import kg.ktmu.staj.repo.MeasurementRepo;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,13 @@ public class MeasurementService {
 
     public List<Measurement> findAll() {
         return repo.findAll();
+    }
+
+    public void save(Measurement measurement) {
+        repo.save(measurement);
+    }
+
+    public void delete(Measurement measurement) {
+        repo.delete(measurement);
     }
 }

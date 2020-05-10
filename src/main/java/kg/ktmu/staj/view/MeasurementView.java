@@ -2,11 +2,13 @@ package kg.ktmu.staj.view;
 
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import kg.ktmu.staj.entity.Measurement;
 import kg.ktmu.staj.service.MeasurementService;
 
-@Route("measurement")
+@Route(value = "measurement", layout = MainLayout.class)
+@PageTitle("Measurements | Staj CRM")
 public class MeasurementView extends VerticalLayout {
 
     private final MeasurementService service;

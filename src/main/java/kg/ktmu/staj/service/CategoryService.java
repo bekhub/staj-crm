@@ -18,4 +18,12 @@ public class CategoryService {
     public List<Category> findAll() {
         return repo.findAll();
     }
+
+    public void save(Category category) {
+        repo.save(category);
+    }
+
+    public void delete(Category category) {
+        repo.delete(category);
+    }
 }

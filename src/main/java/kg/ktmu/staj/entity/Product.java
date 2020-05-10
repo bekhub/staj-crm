@@ -31,13 +31,13 @@ public class Product extends AbstractEntity {
 
     private Integer quantityInStock;
 
-    private Float addedValue;
+    private Double addedValue;
 
-    private Float grossWeight;
+    private Double grossWeight;
 
-    private Float price;
+    private Double price;
 
-    private Float addedPrice;
+    private Double addedPrice;
 
     @Column(unique = true)
     private String barcode;

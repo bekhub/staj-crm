@@ -21,4 +21,12 @@ public class ProductService {
     public List<Product> findAll() {
         return productRepo.findAll();
     }
+
+    public void save(Product product) {
+        productRepo.save(product);
+    }
+
+    public void delete(Product product) {
+        productRepo.delete(product);
+    }
 }

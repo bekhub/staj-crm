@@ -1,5 +1,6 @@
 package kg.ktmu.staj.service;
 
+import kg.ktmu.staj.entity.Category;
 import kg.ktmu.staj.entity.Report;
 import kg.ktmu.staj.repo.ReportRepo;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,13 @@ public class ReportService {
 
     public List<Report> findAll() {
         return repo.findAll();
+    }
+
+    public void save(Report report) {
+        repo.save(report);
+    }
+
+    public void delete(Report report) {
+        repo.delete(report);
     }
 }
