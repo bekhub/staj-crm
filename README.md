@@ -8,7 +8,7 @@
     <li>maven</li>
     <li>mysql or mariadb</li>
     <li>jdk:11</li>
-    <li>nodejs</li>
+    <li>nodejs and npm</li>
 </ul>
 <h4>Steps:</h4>
 <ol>
