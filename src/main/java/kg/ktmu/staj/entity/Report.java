@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 public class Report extends AbstractEntity {
 
-    private Integer money;
+    private Double money;
 
     @Column(columnDefinition = "TEXT")
     private String text;

@@ -16,5 +16,6 @@ public class Brand extends AbstractEntity {
     @NotEmpty
     private String title;
 
-    private String photo;
+    @Lob
+    private byte[] photo;
 }

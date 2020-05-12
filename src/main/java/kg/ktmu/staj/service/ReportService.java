@@ -1,6 +1,5 @@
 package kg.ktmu.staj.service;
 
-import kg.ktmu.staj.entity.Category;
 import kg.ktmu.staj.entity.Report;
 import kg.ktmu.staj.repo.ReportRepo;
 import org.springframework.stereotype.Service;

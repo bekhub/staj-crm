@@ -3,20 +3,27 @@ package kg.ktmu.staj.view;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.StreamResource;
 import kg.ktmu.staj.entity.Brand;
 import kg.ktmu.staj.entity.Category;
+import kg.ktmu.staj.entity.Measurement;
 import kg.ktmu.staj.entity.Product;
 import kg.ktmu.staj.form.ProductForm;
 import kg.ktmu.staj.service.BrandService;
 import kg.ktmu.staj.service.CategoryService;
 import kg.ktmu.staj.service.MeasurementService;
 import kg.ktmu.staj.service.ProductService;
+import org.apache.commons.io.IOUtils;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 
 @Route(value = "", layout = MainLayout.class)
@@ -51,7 +58,15 @@ public class ProductView extends VerticalLayout {
     }
 
     private void saveProduct(ProductForm.SaveEvent event) {
-        service.save(event.getProduct());
+        byte[] image = new byte[0];
+        try {
+            image = IOUtils.toByteArray(form.getBuffer().getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Product product = event.getProduct();
+        product.setPhoto(image);
+        service.save(product);
         updateList();
         closeEditor();
     }
@@ -86,6 +101,7 @@ public class ProductView extends VerticalLayout {
         grid.setSizeFull();
         grid.removeColumnByKey("category");
         grid.removeColumnByKey("brand");
+        grid.removeColumnByKey("measurementType");
         grid.setColumns("title", "quantity", "price", "grossWeight");
         grid.addColumn(product -> {
             Category category = product.getCategory();
@@ -95,6 +111,23 @@ public class ProductView extends VerticalLayout {
             Brand brand = product.getBrand();
             return brand == null ? "-" : brand.getTitle();
         }).setHeader("Brand");
+        grid.addColumn(product -> {
+            Measurement measurement = product.getMeasurementType();
+            return measurement == null ? "-" : measurement.getTitle();
+        }).setHeader("Measurement type");
+        grid.addComponentColumn(product -> {
+            byte[] photo = product.getPhoto();
+            StreamResource resource = new StreamResource(product.getTitle(),
+                    () -> new ByteArrayInputStream(photo));
+            Image image;
+            if(photo.length == 0)
+                image = new Image("https://vaadin.com/images/trademark/PNG/VaadinLogomark_RGB_500x500.png", "image");
+            else
+                image = new Image(resource, product.getTitle());
+            image.setMaxHeight("30px");
+            image.setMaxWidth("30px");
+            return image;
+        }).setHeader("Photo");
 
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
         grid.asSingleSelect().addValueChangeListener(event ->

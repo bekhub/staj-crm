@@ -22,7 +22,8 @@ public class Product extends AbstractEntity {
     @ManyToOne(targetEntity = Category.class)
     private Category category;
 
-    private String photo;
+    @Lob
+    private byte[] photo;
 
     @ManyToOne(targetEntity = Measurement.class)
     private Measurement measurementType;

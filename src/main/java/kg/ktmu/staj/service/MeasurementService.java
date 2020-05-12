@@ -1,6 +1,5 @@
 package kg.ktmu.staj.service;
 
-import kg.ktmu.staj.entity.Category;
 import kg.ktmu.staj.entity.Measurement;
 import kg.ktmu.staj.repo.MeasurementRepo;
 import org.springframework.stereotype.Service;
