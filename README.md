@@ -12,7 +12,7 @@
 </ul>
 <h4>Steps:</h4>
 <ol>
-    <li>Clone project: <code>git clone https://github.com/bekhub/staj.git</code></li>
+    <li>Clone project: <code>git clone https://github.com/bekhub/staj-crm.git</code></li>
     <li>go to staj directory: <code>cd staj-crm</code></li>
     <li>create database with name <code>staj</code></li>
     <li>create user <i>admin</i> with password <i>admin</i> in mysql and give access to <code>staj</code> database</li>
